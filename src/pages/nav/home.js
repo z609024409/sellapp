@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { SearchBar, Carousel, WingBlank, WhiteSpace, Flex } from 'antd-mobile'
-import { shops } from '../../api/api'
-// import { Link } from 'react-router-dom'
-export default class home extends Component {
+import { shops,IP } from '../../api/api'
+import {connect} from 'react-redux'
+class home extends Component {
     render() {
         return (
             <div style={{ height: '100%', overflow: 'scroll' }}>
@@ -51,8 +51,8 @@ export default class home extends Component {
                     <WingBlank>
                         <span style={{ fontSize: '18px' }}> 猜你喜欢</span>
                         {this.state.shop.map(res =>
-                            <Flex align="start" style={{ marginTop: "10px" }} key={res.id}>
-                                <img alt='' src={require("../../assets/images/project/1.jpg")} style={{ height: '120px', width: '90px' }} />
+                            <Flex align="start" style={{ marginTop: "10px" }} key={res.id} onClick={this.gethistory.bind(this,res)}>
+                                <img alt='' src={IP+res.imgs}style={{ height: '120px', width: '90px' }} />
                                 <Flex justify="between" style={{ flex: 1 }}>
                                     <div style={{ marginLeft: '15px' }}>
                                         <h3>{res.name}</h3>
@@ -122,4 +122,12 @@ export default class home extends Component {
         window.location.href = '/#/' + url
         // this.props.history.push(url)
     }
+    gethistory(v){
+         this.props.dispatch({
+             type:'gethouse',
+             v
+         })
+    }
 }
+
+export default connect()(home)

@@ -1,11 +1,34 @@
 import React, { Component } from 'react'
-
-export default class history extends Component {
+import { connect } from 'react-redux'
+import { Flex } from 'antd-mobile'
+import { IP } from '../../api/api'
+class history extends Component {
     render() {
         return (
             <div>
-                历史记录
+                111
+                {this.props.list.map(res =>
+                    <Flex align="start" style={{ marginTop: "10px" }} key={res.id}>
+                        <img alt='' src={IP + res.imgs} style={{ height: '120px', width: '90px' }} />
+                        <Flex justify="between" style={{ flex: 1 }}>
+                            <div style={{ marginLeft: '15px' }}>
+                                <h3>{res.name}</h3>
+                                <p>{res.area}.{res.range}</p>
+                                <p>{res.type}</p>
+                            </div>
+                            <div>
+                                <p style={{ color: '#ff1515', fontSize: '18px', fontWeight: 'bold' }}>{res.price}元/平</p>
+                            </div>
+                        </Flex>
+                    </Flex>
+                )}
             </div>
         )
     }
 }
+
+export default connect((state) => {
+    return {
+        list: state
+    }
+})(history)

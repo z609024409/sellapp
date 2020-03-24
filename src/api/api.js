@@ -1,8 +1,10 @@
 import axios from 'axios'
 import qs from 'qs'
 
+export var IP='http://localhost:80'
+
 let req=axios.create({
-    baseURL:'http://localhost:80',
+    baseURL:IP,
     timeout:8000
 })
 
