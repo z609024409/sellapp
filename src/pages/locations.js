@@ -27,6 +27,7 @@ export default class locations extends Component {
 
                     </ul>
                 </div>
+                <h3>城市</h3>
                 <div ref='right' style={{ height: '100%', overflow: 'scroll', marginRight: '20px' }}>
                     {this.state.citys.map((res, i) =>
                         <p onClick={this.rightChoose} key={res.title}>

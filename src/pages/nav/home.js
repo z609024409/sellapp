@@ -2,16 +2,19 @@ import React, { Component } from 'react'
 import { SearchBar, Carousel, WingBlank, WhiteSpace, Flex } from 'antd-mobile'
 import { shops,IP } from '../../api/api'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+// import {IP} from '../../api/api'
 class home extends Component {
     render() {
         return (
             <div style={{ height: '100%', overflow: 'scroll' }}>
                 {/*  顶部搜索栏 */}
-                {/* <ul className='content' style={{marginLeft:'none'}}> */}
                     <Flex justify="between" style={{ backgroundColor: '#00bc5b', padding: '5px 10px', width: '100%' }}>
-                        <div onClick={this.getUrl.bind(this, 'maplist')}>{this.state.citys}▽</div>
+                        {/* <div onClick={this.getUrl.bind(this, 'maplist')}>{this.state.citys}▽</div> */}
+                        <Link to='/nav/maplist'>{this.state.citys}▽</Link>
                         <SearchBar placeholder="自动获取光标" ref={ref => this.autoFocusInst = ref} style={{ width: "70%", backgroundColor: '#00bc5b' }} />
-                        <div onClick={this.getUrl.bind(this, 'locations')}>位置</div>
+                        <Link to='/nav/locations'>位置</Link>
+                        {/* <div onClick={this.getUrl.bind(this, 'locations')}>位置</div> */}
                     </Flex>
                     <Carousel autoplay={true} infinite>
                         {this.state.data.map(val => (
@@ -20,6 +23,7 @@ class home extends Component {
                             </div>
                         ))}
                     </Carousel>
+                    
                     <WhiteSpace size="sm" />
                     <WingBlank>
                         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", textAlign: "center" }}>
@@ -117,11 +121,13 @@ class home extends Component {
             }
         });
     }
-    getUrl(url) {
-        // this.props.history.push(url)
-        window.location.href = '/#/' + url
-        // this.props.history.push(url)
-    }
+    // getUrl(url) {
+    //     // this.props.history.push(url)
+    //     // window.location.href = '/#/' + url
+    //     console.log( this.props.match );
+        
+    //     // this.props.history
+    // }
     gethistory(v){
          this.props.dispatch({
              type:'gethouse',

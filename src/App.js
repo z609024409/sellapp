@@ -4,6 +4,7 @@ import Naviga from "./pages/naviga"
 import Sign from './pages/sign'
 import Map from './pages/maplist'
 import Locations from './pages/locations'
+import Chats from './pages/nav/chat'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 export default class app extends Component {
     render() {
@@ -14,8 +15,9 @@ export default class app extends Component {
                         <Route exact path="/" component={Naviga}/>
                         <Route path="/login" component={Login} />
                         <Route path="/sign" component={Sign} />
-                        <Route path="/maplist" component={Map} />
-                        <Route path="/locations" component={Locations} />
+                        <Route path="/nav/maplist" component={Map} />
+                        <Route path="/nav/locations" component={Locations} />
+                        <Route path="/chats" component={Chats} />
                         <Route component={Naviga} />
                     </Switch>
                 </HashRouter>

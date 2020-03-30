@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { List, WingBlank, Flex, WhiteSpace } from 'antd-mobile';
-
+import {Link} from 'react-router-dom'
 const Item = List.Item;
 const Brief = Item.Brief;
 export default class mine extends Component {
@@ -24,15 +24,15 @@ export default class mine extends Component {
     render() {
         return (
             <div>
-                <div style={{ backgroundColor: '#58c9fc' }}>
+                <div style={{ backgroundColor: '#58c9fc',color:'#fff' }}>
                     <div>
                         <WhiteSpace size="sm" />
                         <WingBlank>
                             <Flex>
                                 <img style={{ width: '100px', height: '100px', borderRadius: '50%' }} src={require('../../assets/images/head.jpg')} alt=''></img>
                                 <div style={{ marginLeft: '15px' }}>
-                                    <h1>登录 /注册</h1>
-                                    <p>可以与经纪人发起聊天</p>
+                                    <h1><Link to='/login' style={{color:'#ffffff'}}>登录</Link> /<Link to='/sign' style={{color:'#ffffff'}}>注册</Link></h1>
+                                    <p><Link to='/chats' style={{color:'#ffffff'}}>可以与经纪人发起聊天</Link></p>
                                 </div>
                             </Flex>
                         </WingBlank>
@@ -44,7 +44,7 @@ export default class mine extends Component {
                                     <div style={{textAlign:'center',color:'#ffffff'}} key={res.id}>
                                         <p>8</p>
                                         <div style={{ display: 'flex' }}>
-                                            <img style={{ width: '40px' }} src={require('../../assets/images/mine/' + res.src + '.png')} alt='' />
+                                            <img style={{ width: '40px',height:'40px' }} src={require('../../assets/images/mine/' + res.src + '.png')} alt='' />
                                             <p>{res.title}</p>
                                         </div>
                                     </div>

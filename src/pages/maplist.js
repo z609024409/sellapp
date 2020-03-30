@@ -4,6 +4,7 @@ export default class map extends Component {
     render() {
         return (
             <div style={{ width: '100%', height: '100%' }}>
+                <h3>地图</h3>
               <div id='container' style={{ width: '100%', height: '100%' }}></div>
             </div>
         )
